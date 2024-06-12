@@ -17,7 +17,7 @@ async def progress(current, total):
 app = Client(ACCOUNT)
 app.start()
 
-''''''
+'''Passo 1'''
 # Pega todos os Chats/Grupos/Canais e lista com a ID
 chats = app.get_dialogs()
 num = 0
@@ -30,7 +30,7 @@ for chat in chats:
         pass
 
 
-'''
+'''Passo 2'''
 # Entra no Canal/Grupo/Chat e pega o historico todo
 message = app.get_chat_history(-1001867528704)
 
@@ -40,7 +40,9 @@ for m in message:
         app.download_media(m, str(m.id)+'.mp4', progress=progress)
     if m.photo:
         app.download_media(m, str(m.id)+'.jpg', progress=progress)
-'''
+
+
+'''Passo 3'''
 # Envia todos os arquivos da pasta para o canal
 CANAL = -1002163642260
 
